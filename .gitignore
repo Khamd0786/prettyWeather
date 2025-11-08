@@ -1,0 +1,44 @@
+# Gradle build outputs
+.gradle/
+build/
+*/build/
+
+# Local configuration
+local.properties
+
+# IntelliJ / Android Studio
+*.iml
+.idea/
+.cxx/
+
+# Kotlin Symbol Processing / KAPT generated sources
+.ksp/
+
+# Captured screenshots from Android Studio
+captures/
+
+# MacOS artifacts
+.DS_Store
+
+# Generated signing files
+*.jks
+*.keystore
+
+# Log files
+*.log
+
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
