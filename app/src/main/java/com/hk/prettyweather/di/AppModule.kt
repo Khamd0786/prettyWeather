@@ -3,6 +3,7 @@ package com.hk.prettyweather.di
 import android.content.Context
 import com.hk.prettyweather.core.data.network.DefaultNetworkMonitor
 import com.hk.prettyweather.core.data.network.NetworkMonitor
+import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,5 +26,11 @@ object AppModule {
     fun provideNetworkMonitor(
         defaultNetworkMonitor: DefaultNetworkMonitor,
     ): NetworkMonitor = defaultNetworkMonitor
+
+    @Provides
+    @Singleton
+    fun provideWorkManager(
+        @ApplicationContext context: Context,
+    ): WorkManager = WorkManager.getInstance(context)
 }
 

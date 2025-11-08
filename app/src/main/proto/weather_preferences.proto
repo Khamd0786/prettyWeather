@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.hk.prettyweather.core.data.datastore";
+option java_multiple_files = true;
+
+message WeatherPreferences {
+  repeated CityWeather city_weather = 1;
+}
+
+message CityWeather {
+  string city_id = 1;
+  string city_name = 2;
+  double temperature = 3;
+  string condition = 4;
+  int32 humidity = 5;
+  double wind_speed = 6;
+  int64 last_updated_epoch_seconds = 7;
+}
+

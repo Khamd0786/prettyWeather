@@ -14,7 +14,6 @@ import retrofit2.Response
  */
 abstract class BaseRepository(
     private val networkMonitor: NetworkMonitor,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : CoreRepository {
 
     /**
@@ -29,7 +28,7 @@ abstract class BaseRepository(
         if (!networkMonitor.isConnected()) {
             return Result.failure(NetworkUnavailableException())
         }
-        return safeCall(dispatcher, apiCall)
+        return safeCall(apiCall)
     }
 
     /**

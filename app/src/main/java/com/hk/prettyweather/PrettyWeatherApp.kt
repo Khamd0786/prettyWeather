@@ -1,8 +1,20 @@
 package com.hk.prettyweather
 
 import android.app.Application
+import androidx.work.Configuration
+import androidx.hilt.work.HiltWorkerFactory
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
-class PrettyWeatherApp : Application()
+class PrettyWeatherApp : Application(), Configuration.Provider {
+
+    @Inject
+    lateinit var workerFactory: HiltWorkerFactory
+
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .build()
+}
 

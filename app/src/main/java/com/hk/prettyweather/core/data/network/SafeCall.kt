@@ -10,9 +10,8 @@ import retrofit2.Response
  * Execute a Retrofit request safely, mapping common failure cases onto [Result].
  */
 suspend fun <T> safeCall(
-    dispatcher: CoroutineDispatcher = Dispatchers.IO,
     apiCall: suspend () -> Response<T>,
-): Result<T> = withContext(dispatcher) {
+): Result<T> = withContext(Dispatchers.IO) {
     try {
         val response = apiCall()
         if (response.isSuccessful) {
@@ -31,5 +30,5 @@ suspend fun <T> safeCall(
 }
 
 class EmptyBodyException(response: Response<*>) :
-    IllegalStateException("Response body was null for call: ${response.raw().request().url()}")
+    IllegalStateException("Response body was null for call: ${response.raw().request.url}")
 
